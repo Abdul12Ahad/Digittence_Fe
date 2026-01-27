@@ -1,0 +1,356 @@
+.class-page {
+  min-height: 100vh;
+  background-color: #ebe9e1;
+  font-family: "Segoe UI", sans-serif;
+  color: #2b2b2b;
+}
+
+.class-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px;
+}
+
+.class-header h1 {
+  color: #e43d12;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.back-btn {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.class-tabs {
+  display: flex;
+  gap: 12px;
+  padding: 0 40px;
+}
+
+.class-tabs button {
+  padding: 10px 18px;
+  border: none;
+  background: #f5f5f5;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.class-tabs .active {
+  background: #e43d12;
+  color: white;
+}
+
+.class-content {
+  padding: 40px;
+}
+
+.attendance-controls-card {
+  display: flex;
+  gap: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.attendance-controls-card label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.attendance-controls-card input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.attendance-table {
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  border-collapse: collapse;
+}
+
+.attendance-table th,
+.attendance-table td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.attendance-table th {
+  background: #f8f8f8;
+  text-align: left;
+}
+
+.status-toggle {
+  display: flex;
+  gap: 10px;
+}
+
+.status-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.status-btn.present {
+  background: #e6f4ea;
+  color: #137333;
+}
+
+.status-btn.absent {
+  background: #fdecea;
+  color: #b00020;
+}
+
+.status-btn.active {
+  border-color: #333;
+}
+
+.add-student-btn {
+  margin-top: 15px;
+  background: #f5f5f5;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.save-btn {
+  margin-top: 25px;
+  background: #e43d12;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 320px;
+}
+
+.modal input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-btn.primary {
+  background: #e43d12;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.modal-btn.secondary {
+  background: #f5f5f5;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.attendance-controls-card select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.small-btn {
+  align-self: flex-end;
+  background: #f5f5f5;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.subject-select select {
+  width: 180px;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.attendance-controls-card {
+  align-items: flex-end;
+}
+
+.student-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.student-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.action-text {
+  background: none;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
+.action-text.edit {
+  color: #137333;
+}
+
+.action-text.delete {
+  color: #b00020;
+}
+
+.subject-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.add-subject-btn {
+  background: #e43d12;
+  color: white;
+  border: 1px solid #ddd;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.add-student-inline-btn {
+  background: #e43d12;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+@media (max-width: 1024px) {
+  .attendance-controls-card {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .subject-row {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .subject-select select {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .class-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .class-tabs {
+    padding: 0 20px;
+    flex-wrap: wrap;
+  }
+
+  .class-content {
+    padding: 25px 20px;
+  }
+
+  .attendance-controls-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .attendance-controls-card > div {
+    width: 100%;
+  }
+
+  .add-subject-btn {
+    align-self: flex-start;
+  }
+
+  .attendance-table th,
+  .attendance-table td {
+    padding: 10px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .class-header {
+    padding: 20px;
+  }
+
+  .class-header h1 {
+    font-size: 22px;
+  }
+
+  .class-tabs button {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .attendance-table {
+    font-size: 12px;
+  }
+
+  .status-toggle {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .status-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .student-actions {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .save-btn,
+  .add-student-btn {
+    width: 100%;
+  }
+
+  .modal {
+    width: 90%;
+  }
+}
