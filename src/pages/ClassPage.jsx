@@ -103,6 +103,12 @@ const addStudent = async () => {
     fetchSubjects();
   };
 
+  const uploadStudents = async () => {
+  if (!file) {
+    alert("Select a file first");
+    return;
+  }
+
   const formData = new FormData();
   formData.append("file", file);
   formData.append("classId", classId);
