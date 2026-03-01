@@ -103,12 +103,6 @@ const addStudent = async () => {
     fetchSubjects();
   };
 
-  const saveAttendance = async () => {
-  if (!subject) {
-    alert("Select subject");
-    return;
-  }
-
   const uploadStudents = async () => {
   if (!file) {
     alert("Select a file first");
@@ -130,6 +124,12 @@ const addStudent = async () => {
     alert("Upload failed");
   }
 };
+
+  const saveAttendance = async () => {
+  if (!subject) {
+    alert("Select subject");
+    return;
+  }
 
   const records = students.map((s) => ({
     faculty: localStorage.getItem("facultyId"),
