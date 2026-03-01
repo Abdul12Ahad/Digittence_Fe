@@ -354,3 +354,16 @@
     width: 90%;
   }
 }
+
+.subject-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.upload-btn {
+  background: #ddd;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}

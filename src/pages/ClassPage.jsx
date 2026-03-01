@@ -29,6 +29,7 @@ const ClassPage = () => {
   const [rollNo, setRollNo] = useState("");
 
   const [editStudent, setEditStudent] = useState(null);
+  const [file, setFile] = useState(null);
 
   useEffect(() => {
     fetchStudents();
@@ -107,6 +108,28 @@ const addStudent = async () => {
     alert("Select subject");
     return;
   }
+
+  const uploadStudents = async () => {
+  if (!file) {
+    alert("Select a file first");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("classId", classId);
+
+  try {
+    await api.post("/students/upload", formData, {
+      headers: { "Content-Type": "multipart/form-data" }
+    });
+
+    alert("Students uploaded successfully");
+    fetchStudents();
+  } catch (err) {
+    alert("Upload failed");
+  }
+};
 
   const records = students.map((s) => ({
     faculty: localStorage.getItem("facultyId"),
@@ -193,12 +216,28 @@ const addStudent = async () => {
               </div>
 
               {isOwner && (
-                <button
-                  className="add-subject-btn"
-                  onClick={() => setShowAddSubject(true)}
-                >
-                  + Add
-                </button>
+                <div className="subject-buttons">
+                    <button
+                      className="add-subject-btn"
+                      onClick={() => setShowAddSubject(true)}
+                    >
+                      + Add
+                    </button>
+
+                    <label className="upload-btn">
+                      Upload Students
+                      <input
+                        type="file"
+                        accept=".xlsx,.csv"
+                        hidden
+                        onChange={(e) => setFile(e.target.files[0])}
+                      />
+                    </label>
+
+                    <button className="add-subject-btn" onClick={uploadStudents}>
+                      Upload
+                    </button>
+                </div>
               )}
             </div>
           </div>
