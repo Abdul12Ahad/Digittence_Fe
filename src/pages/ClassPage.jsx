@@ -103,12 +103,6 @@ const addStudent = async () => {
     fetchSubjects();
   };
 
-  const uploadStudents = async () => {
-  if (!file) {
-    alert("Select a file first");
-    return;
-  }
-
   const formData = new FormData();
   formData.append("file", file);
   formData.append("classId", classId);
@@ -224,19 +218,35 @@ const addStudent = async () => {
                       + Add
                     </button>
 
-                    <label className="upload-btn">
-                      Upload Students
+                    <label className="add-subject-btn">
+                      Upload
                       <input
                         type="file"
                         accept=".xlsx,.csv"
                         hidden
-                        onChange={(e) => setFile(e.target.files[0])}
+                        onChange={async (e) => {
+                          const selectedFile = e.target.files[0];
+                          if (!selectedFile) return;
+
+                          const formData = new FormData();
+                          formData.append("file", selectedFile);
+                          formData.append("classId", classId);
+
+                          try {
+                            await api.post("/students/upload", formData, {
+                              headers: { "Content-Type": "multipart/form-data" }
+                            });
+
+                            alert("Students uploaded successfully");
+                            fetchStudents();
+                          } catch (err) {
+                            alert("Upload failed");
+                          }
+
+                          e.target.value = null; 
+                        }}
                       />
                     </label>
-
-                    <button className="add-subject-btn" onClick={uploadStudents}>
-                      Upload
-                    </button>
                 </div>
               )}
             </div>
